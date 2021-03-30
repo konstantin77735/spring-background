@@ -48,14 +48,14 @@ var mouse = {
 
 var stretch = 0;
 
-window.addEventListener('scroll', function(e) {
-    alert(1); //АЛЁРТ ПРИПИСАЛ, чтобы было видно когда функция срабатывает. На десктопе срабатывает, на мобилках - нет.
+canvas.addEventListener('mousemove', function(e) {
   mouse.x = e.offsetX;
   mouse.y = e.offsetY;
 });
 
-
-
+window.addEventListener('mouseout', function(e) {
+  if (e.target === document || e.target === canvas) { mouse = {}; }
+});
 
 function update() {
   mySpring.update();
